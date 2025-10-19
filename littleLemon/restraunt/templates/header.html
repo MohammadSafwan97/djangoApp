@@ -1,0 +1,44 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-white py-4">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+      <img
+        src="{% static 'images/logo.png' %}"
+        alt="Logo"
+        class="me-2"
+        style="height: 40px"
+      />
+      <span class="fw-semibold text-dark fs-6 fs-light">
+        Café <span class="text-gold fs-light">de Safwan</span>
+      </span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+      <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-4">
+        <li class="nav-item">
+          <a href="{% url 'home' %}" class="nav-link active">Home</a>
+        </li>
+        <li class="nav-item"><a href="#" class="nav-link">About Me</a></li>
+        <li class="nav-item"><a href="menu/" class="nav-link">Menu</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Online Shop</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">My Recipes</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">E-Books</a></li>
+      </ul>
+    </div>
+
+    <div class="d-none d-lg-flex align-items-center ms-4 gap-2">
+      <a href="#" class="btn btn-link text-dark text-decoration-none">Login</a>
+      <a href="#" class="btn btn-outline-dark rounded-0 px-3">Register</a>
+      <a href="#" class="btn btn-dark rounded-0 px-3 ms-2">Request</a>
+    </div>
+  </div>
+</nav>

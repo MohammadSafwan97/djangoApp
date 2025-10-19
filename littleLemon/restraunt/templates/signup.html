@@ -1,0 +1,83 @@
+<div
+  class="d-flex justify-content-center align-items-center min-vh-100"
+  style="background: #f0f2f5"
+>
+  <form
+    class="p-4 p-md-5 rounded-4 bg-white shadow-lg"
+    style="max-width: 400px; width: 100%; border: none"
+  >
+    <h2 class="mb-4 text-center fw-bold">Sign Up</h2>
+
+    <div class="form-floating mb-3">
+      <input
+        type="email"
+        class="form-control rounded-3 border-1 shadow-sm"
+        id="floatingInput"
+        placeholder="name@example.com"
+        style="transition: all 0.3s"
+      />
+      <label for="floatingInput">Email address</label>
+      <div class="form-text text-danger d-none" id="emailError">
+        Invalid email
+      </div>
+    </div>
+
+    <div class="form-floating mb-3 position-relative">
+      <input
+        type="password"
+        class="form-control rounded-3 border-1 shadow-sm"
+        id="floatingPassword"
+        placeholder="Password"
+        style="transition: all 0.3s"
+      />
+      <label for="floatingPassword">Password</label>
+      <button
+        type="button"
+        class="btn btn-sm position-absolute top-50 end-0 translate-middle-y me-2"
+        onclick="togglePassword()"
+        style="border: none; background: none"
+      >
+        👁
+      </button>
+      <div class="form-text text-danger d-none" id="passwordError">
+        Password too short
+      </div>
+    </div>
+
+    <div class="form-check mb-4">
+      <input type="checkbox" class="form-check-input" id="rememberMe" />
+      <label class="form-check-label" for="rememberMe">Remember me</label>
+    </div>
+
+    <button
+      class="w-100 btn btn-gradient btn-lg mb-3"
+      type="submit"
+      style="
+        background: linear-gradient(135deg, #6c63ff, #00d4ff);
+        border: none;
+        color: white;
+        transition: 0.3s;
+      "
+    >
+      Sign Up
+    </button>
+
+    <div class="text-center mb-3">
+      <a href="#" class="text-decoration-none small"
+        >Already have an account? Log in</a
+      >
+    </div>
+
+    <hr class="my-3" />
+    <small class="text-muted d-block text-center"
+      >By clicking Sign up, you agree to the terms of use.</small
+    >
+  </form>
+</div>
+
+<script>
+  function togglePassword() {
+    const pw = document.getElementById("floatingPassword");
+    pw.type = pw.type === "password" ? "text" : "password";
+  }
+</script>

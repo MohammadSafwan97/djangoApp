@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Menu | Café de
+Safwan{% endblock %} {% block content %}
+<div class="menu-section py-5">
+  <div class="container">
+    <h2 class="text-center display-5 fw-bold mb-5">Our Menu</h2>
+
+    <div class="row g-4">
+      {% for item in menu_items %}
+      <div class="col-md-4">
+        <div class="card menu-item h-100 shadow-sm">
+          <img
+            src="{{ item.image.url }}"
+            class="card-img-top"
+            alt="{{ item.name }}"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="card-text">{{ item.description }}</p>
+            <span class="text-gold fw-bold">${{ item.price }}</span>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <p class="text-center">No menu items available at the moment.</p>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}
