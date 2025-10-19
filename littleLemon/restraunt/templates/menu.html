@@ -50,7 +50,7 @@ Safwan{% endblock %} {% block content %}
               class="mt-auto d-flex justify-content-between align-items-center"
             >
               <span class="text-primary fw-bold fs-5">${{ item.price }}</span>
-              <form method="POST" action="{% url 'add_to_cart' item.id %}">
+              <form method="POST" action="">
                 {% csrf_token %}
                 <button
                   type="submit"

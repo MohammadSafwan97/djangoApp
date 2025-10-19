@@ -1,34 +1,87 @@
+{% extends 'base.html' %} {% block content %}
 <div
-  class="d-flex justify-content-center align-items-center min-vh-100"
-  style="background: #f0f2f5"
+  class="d-flex justify-content-center align-items-start"
+  style="background: #f0f2f5; min-height: 100vh; padding-top: 60px"
 >
   <form
+    method="POST"
     class="p-4 p-md-5 rounded-4 bg-white shadow-lg"
-    style="max-width: 400px; width: 100%; border: none"
+    style="max-width: 480px; width: 100%; border: none"
   >
+    {% csrf_token %}
     <h2 class="mb-4 text-center fw-bold">Sign Up</h2>
+
+    <!-- Full Name -->
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        name="first_name"
+        class="form-control rounded-3 border-1 shadow-sm"
+        id="floatingFirstName"
+        placeholder="First Name"
+        required
+      />
+      <label for="floatingFirstName">First Name</label>
+    </div>
 
     <div class="form-floating mb-3">
       <input
-        type="email"
+        type="text"
+        name="last_name"
         class="form-control rounded-3 border-1 shadow-sm"
-        id="floatingInput"
-        placeholder="name@example.com"
-        style="transition: all 0.3s"
+        id="floatingLastName"
+        placeholder="Last Name"
+        required
       />
-      <label for="floatingInput">Email address</label>
-      <div class="form-text text-danger d-none" id="emailError">
-        Invalid email
-      </div>
+      <label for="floatingLastName">Last Name</label>
     </div>
 
+    <!-- Email -->
+    <div class="form-floating mb-3">
+      <input
+        type="email"
+        name="email"
+        class="form-control rounded-3 border-1 shadow-sm"
+        id="floatingEmail"
+        placeholder="name@example.com"
+        required
+      />
+      <label for="floatingEmail">Email address</label>
+    </div>
+
+    <!-- Phone -->
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        name="phone"
+        class="form-control rounded-3 border-1 shadow-sm"
+        id="floatingPhone"
+        placeholder="Phone Number"
+      />
+      <label for="floatingPhone">Phone Number</label>
+    </div>
+
+    <!-- Address -->
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        name="address"
+        class="form-control rounded-3 border-1 shadow-sm"
+        id="floatingAddress"
+        placeholder="Address"
+      />
+      <label for="floatingAddress">Address</label>
+    </div>
+
+    <!-- Password -->
     <div class="form-floating mb-3 position-relative">
       <input
         type="password"
+        name="password"
         class="form-control rounded-3 border-1 shadow-sm"
         id="floatingPassword"
         placeholder="Password"
-        style="transition: all 0.3s"
+        required
       />
       <label for="floatingPassword">Password</label>
       <button
@@ -39,9 +92,19 @@
       >
         👁
       </button>
-      <div class="form-text text-danger d-none" id="passwordError">
-        Password too short
-      </div>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="form-floating mb-3 position-relative">
+      <input
+        type="password"
+        name="confirm_password"
+        class="form-control rounded-3 border-1 shadow-sm"
+        id="floatingConfirmPassword"
+        placeholder="Confirm Password"
+        required
+      />
+      <label for="floatingConfirmPassword">Confirm Password</label>
     </div>
 
     <div class="form-check mb-4">
@@ -63,21 +126,26 @@
     </button>
 
     <div class="text-center mb-3">
-      <a href="#" class="text-decoration-none small"
-        >Already have an account? Log in</a
-      >
+      <small>
+        Already have an account?
+        <a href="{% url 'menu' %}" class="text-decoration-none">Log in</a>
+      </small>
     </div>
 
     <hr class="my-3" />
-    <small class="text-muted d-block text-center"
-      >By clicking Sign up, you agree to the terms of use.</small
-    >
+    <small class="text-muted d-block text-center">
+      By clicking Sign Up, you agree to the terms of use.
+    </small>
   </form>
 </div>
 
 <script>
   function togglePassword() {
     const pw = document.getElementById("floatingPassword");
+    const confirmPw = document.getElementById("floatingConfirmPassword");
     pw.type = pw.type === "password" ? "text" : "password";
+    confirmPw.type = confirmPw.type === "password" ? "text" : "password";
   }
 </script>
+
+{% endblock content %}
