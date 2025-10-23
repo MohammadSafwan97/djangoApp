@@ -102,16 +102,19 @@ a {
 
 /* Hero Left Modern Styles */
 .hero-left h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700; /* bold for emphasis */
+  font-size: 3rem; /* adjust size as needed */
+  color: #222; /* adjust color */
   letter-spacing: 0.5px;
-  font-weight: 600;
-  color: #000;
+
   line-height: 1.2;
-  font-family: "poppins", serif;
+
   max-height: 500px;
 }
 
 .hero-left h1 span {
-  color: #b49b57; /* solid warm accent for coffee bg */
+  color: #eddfb8; /* solid warm accent for coffee bg */
   font-style: italic;
 }
 
