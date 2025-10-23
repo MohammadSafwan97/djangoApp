@@ -55,3 +55,18 @@ def signup(request):
         return redirect('home')  # Redirect to homepage after signup
 
     return render(request, 'signup.html')
+
+# ----------------- REST API SECTION -----------------
+from rest_framework import viewsets
+from .models import MenuItem, Booking
+from .serializers import MenuItemSerializer, BookingSerializer
+
+class MenuItemViewSet(viewsets.ModelViewSet):
+    """API endpoint for listing and managing menu items."""
+    queryset = MenuItem.objects.all()
+    serializer_class = MenuItemSerializer
+
+class BookingViewSet(viewsets.ModelViewSet):
+    """API endpoint for listing and managing bookings."""
+    queryset = Booking.objects.all()
+    serializer_class = BookingSerializer
